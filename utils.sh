@@ -32,3 +32,8 @@ function git-acp() {
 	echo "git push would've run now!"
 	git push && echo "Push successful" || (echo "Failed to push :(" && return 3)
 	}
+
+#Function to update and upgrade packages
+function updateall() {
+	sudo apt update && sudo apt upgrade -y
+	}
