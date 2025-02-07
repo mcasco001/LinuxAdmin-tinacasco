@@ -21,7 +21,7 @@ alias gpm="git pull origin main" #This will fetch and merge changes from the rem
 
 #This function will check if there is a commit message and return 1 if true
 function git-acp() {
-	if [-z "$1"]; then
+	if [ -z "$1" ]; then
 		echo "Error: Type in a commit message!" #Print error message if there is no commit message
 		return 1
 	fi
