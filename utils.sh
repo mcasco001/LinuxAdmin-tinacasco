@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 echo "utils just ran!"
 alias ll="ls -laFh"
@@ -37,3 +37,20 @@ function git-acp() {
 function updateall() {
 	sudo apt update && sudo apt upgrade -y
 	}
+
+#Function to check disk space
+
+function check_disk_space() {
+	THRESHOLD=80 #This will be the threshold that will trigger the warning in %
+
+	USAGE=$(df / | awk 'NR==2 {print $5}' | sed 's/%//') #This is going to get the root usage
+	if [ "$USAGE" -ge "$THRESHOLD" ]; then
+		echo "Warning: Disk usage is at ${USAGE}%!"
+		return 1 #This is the exit code for the High disk usage
+
+	else
+
+		echo "Disk usage is at ${USAGE}%. You're fine."
+		return 0 #This will just return the disk usage value if not exceeding threshold.
+	fi
+}
