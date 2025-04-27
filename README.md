@@ -7,4 +7,4 @@ first commit
 GPG key added
 *********
 27-April-25
-GPG verified
+Verifying GPG key
